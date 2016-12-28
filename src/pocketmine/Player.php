@@ -3243,10 +3243,6 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				 * which will cause this to happen anyway, but this is here for when transactions
 				 * fail and items end up stuck in the crafting inventory.
 				 */
-				foreach($this->getFloatingInventory()->getContents() as $item){
-					$this->getTransactionQueue()->addTransaction(new DropItemTransaction($item));
-				}
-				break;
 
 			case ProtocolInfo::CRAFTING_EVENT_PACKET:
 				if($this->spawned === false or !$this->isAlive()){
